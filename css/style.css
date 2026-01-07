@@ -1,0 +1,581 @@
+/* Custom styles and animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Circular features layout */
+.circular-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 700px;
+    margin: 0 auto;
+}
+
+.center-bot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    z-index: 10;
+}
+
+.feature-node {
+    position: absolute;
+    z-index: 5;
+    transition: transform 0.3s ease;
+}
+
+.feature-node:hover {
+    transform: scale(1.05);
+}
+
+.feature-line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
+    width: 2px;
+    background: linear-gradient(to right, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.1));
+    z-index: 1;
+    pointer-events: none;
+}
+
+.feature-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: white;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(226, 232, 240, 1);
+    white-space: nowrap;
+}
+
+.feature-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.feature-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* Mobile wrapper divs - transparent on desktop */
+.mobile-left-features,
+.mobile-right-features {
+    display: contents;
+}
+
+/* Hide mobile sequential features on desktop */
+.mobile-sequential-features {
+    display: none;
+}
+
+/* Popup Styles */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.popup-overlay.hidden {
+    display: none;
+}
+
+.popup-overlay:not(.hidden) {
+    opacity: 1;
+}
+
+.popup-content {
+    background: white;
+    border-radius: 2rem;
+    padding: 2rem;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.popup-overlay:not(.hidden) .popup-content {
+    transform: scale(1);
+}
+
+.popup-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: #f1f5f9;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.popup-close:hover {
+    background: #e2e8f0;
+    transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+    .popup-content {
+        padding: 1.5rem;
+        max-height: 85vh;
+    }
+    
+    .popup-close {
+        top: 1rem;
+        right: 1rem;
+    }
+}
+
+/* Mobile Menu Animations */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 40;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: white;
+    border-bottom: 1px solid rgba(226, 232, 240, 1);
+    z-index: 50;
+    transform: translateY(-100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu.active {
+    transform: translateY(0);
+}
+
+.mobile-menu-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+.mobile-menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: #475569;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(-20px);
+    background: #f8fafc;
+    border: 1px solid transparent;
+}
+
+.mobile-menu.active .mobile-menu-item {
+    animation: slideInMenuItem 0.4s ease forwards;
+}
+
+.mobile-menu.active .mobile-menu-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.mobile-menu.active .mobile-menu-item:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.mobile-menu.active .mobile-menu-item:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.mobile-menu.active .mobile-menu-item:nth-child(4) {
+    animation-delay: 0.25s;
+}
+
+.mobile-menu.active .mobile-menu-item:nth-child(5) {
+    animation-delay: 0.3s;
+}
+
+.mobile-menu.active .mobile-menu-item:nth-child(6) {
+    animation-delay: 0.35s;
+}
+
+.mobile-menu-item:hover,
+.mobile-menu-item:active {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    transform: translateX(4px);
+    color: #1e293b;
+}
+
+.mobile-menu-item span {
+    flex: 1;
+}
+
+.mobile-menu-cta {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white !important;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.mobile-menu-cta:hover,
+.mobile-menu-cta:active {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    transform: translateX(4px) scale(1.02);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+.mobile-menu-cta i {
+    opacity: 1 !important;
+}
+
+@keyframes slideInMenuItem {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Menu Icon Animation */
+#mobile-menu-button {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mobile-menu-button.active #menu-icon {
+    display: none;
+}
+
+#mobile-menu-button.active #close-icon {
+    display: block !important;
+    opacity: 1;
+}
+
+#menu-icon,
+#close-icon {
+    position: absolute;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#close-icon {
+    display: none;
+    opacity: 0;
+}
+
+/* Tablet and smaller screens */
+@media (max-width: 1024px) {
+    .circular-container {
+        max-width: 600px;
+        height: 600px;
+    }
+    .center-bot {
+        width: 200px;
+    }
+    .feature-content {
+        padding: 0.625rem 0.875rem;
+        gap: 0.625rem;
+    }
+    .feature-text {
+        font-size: 0.8125rem;
+    }
+    .feature-icon {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+    /* Global mobile padding to prevent edge touching */
+    .mobile-padding {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    body {
+        overflow-x: hidden;
+    }
+    
+    section {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    
+    .circular-container {
+        height: auto;
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        padding: 1.5rem 1rem;
+        max-width: 100%;
+    }
+    
+    .circular-container svg {
+        display: none;
+    }
+    
+    .center-bot {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 180px;
+        order: -1;
+        margin-bottom: 1rem;
+    }
+    
+    /* Hide desktop circular layout features on mobile */
+    .mobile-left-features,
+    .mobile-right-features {
+        display: none;
+    }
+    
+    /* Show sequential mobile features */
+    .mobile-sequential-features {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+        max-width: 100%;
+        order: 1;
+        padding: 0 0.5rem;
+    }
+    
+    .mobile-sequential-features .feature-node {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        bottom: auto !important;
+        right: auto !important;
+        width: 100%;
+        max-width: 100%;
+        opacity: 0;
+    }
+    
+    /* Left-aligned cards (odd numbers) */
+    .mobile-feature-left {
+        transform: translateX(-50px) !important;
+        animation: slideInFromLeft 0.5s ease forwards;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* Right-aligned cards (even numbers) */
+    .mobile-feature-right {
+        transform: translateX(50px) !important;
+        animation: slideInFromRight 0.5s ease forwards;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* Animation delays for sequential appearance */
+    .mobile-sequential-features .feature-node[data-mobile-order="1"] {
+        animation-delay: 0.1s;
+    }
+    
+    .mobile-sequential-features .feature-node[data-mobile-order="2"] {
+        animation-delay: 0.2s;
+    }
+    
+    .mobile-sequential-features .feature-node[data-mobile-order="3"] {
+        animation-delay: 0.3s;
+    }
+    
+    .mobile-sequential-features .feature-node[data-mobile-order="4"] {
+        animation-delay: 0.4s;
+    }
+    
+    .mobile-sequential-features .feature-node[data-mobile-order="5"] {
+        animation-delay: 0.5s;
+    }
+    
+    .mobile-sequential-features .feature-node[data-mobile-order="6"] {
+        animation-delay: 0.6s;
+    }
+    
+    .mobile-sequential-features .feature-node[data-mobile-order="7"] {
+        animation-delay: 0.7s;
+    }
+    
+    .mobile-sequential-features .feature-node[data-mobile-order="8"] {
+        animation-delay: 0.8s;
+    }
+    
+    .feature-line {
+        display: none;
+    }
+    
+    .feature-content {
+        white-space: normal;
+        width: 100%;
+        justify-content: flex-start;
+        padding: 1rem;
+        gap: 0.75rem;
+        min-height: 80px;
+    }
+    
+    .feature-text {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+    
+    .feature-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        flex-shrink: 0;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .feature-icon i,
+    .feature-icon svg {
+        width: 1.25rem !important;
+        height: 1.25rem !important;
+        display: block !important;
+    }
+}
+
+@keyframes slideInFromLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0) !important;
+    }
+}
+
+@keyframes slideInFromRight {
+    to {
+        opacity: 1;
+        transform: translateX(0) !important;
+    }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+    section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .circular-container {
+        gap: 0.75rem;
+        padding: 1.5rem 1rem;
+    }
+    
+    .feature-content {
+        margin: 0 0.25rem;
+    }
+    
+    .center-bot {
+        width: 150px;
+    }
+    
+    .mobile-left-features,
+    .mobile-right-features {
+        gap: 0.625rem;
+    }
+    
+    .feature-content {
+        padding: 0.875rem;
+        gap: 0.625rem;
+        min-height: 70px;
+    }
+    
+    .feature-icon {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+    
+    .feature-text {
+        font-size: 0.8125rem;
+    }
+}
+
+/* Mobile fixes for large sections */
+@media (max-width: 768px) {
+    /* What Makes Us Unique Section */
+    .unique-section {
+        padding: 2rem 0 !important;
+    }
+    
+    /* Socio-Economic Impact Section - already handled in HTML */
+    #impact .grid.lg\:grid-cols-2 {
+        gap: 2rem !important;
+    }
+}
+

@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SakhiBot | AI-Powered Educational Companion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent),
+                        radial-gradient(circle at bottom left, rgba(30, 58, 138, 0.05), transparent);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-3">
+                    <img src="assets/logo.png" alt="SakhiBot Logo" class="h-14 md:h-16">
+                    <span class="text-xl md:text-2xl font-bold tracking-tight text-blue-600">SakhiBot</span>
+                </div>
+                
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#problem" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Problem</a>
+                    <a href="#solution" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Solution</a>
+                    <a href="#features" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Features</a>
+                    <a href="#pricing" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Pricing</a>
+                    <a href="#impact" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Impact</a>
+                    <a href="#contact" class="px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-semibold hover:bg-blue-700 transition-all shadow-md">Get Started</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-slate-600 p-2 relative z-50 transition-transform duration-300">
+                        <i id="menu-icon" data-lucide="menu" class="w-6 h-6"></i>
+                        <i id="close-icon" data-lucide="x" class="w-6 h-6 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Overlay -->
+        <div id="mobile-menu-overlay" class="mobile-menu-overlay hidden md:hidden"></div>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden">
+            <div class="mobile-menu-content">
+                <a href="#problem" class="mobile-menu-item">
+                    <span>Problem</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+                </a>
+                <a href="#solution" class="mobile-menu-item">
+                    <span>Solution</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+                </a>
+                <a href="#features" class="mobile-menu-item">
+                    <span>Features</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+                </a>
+                <a href="#pricing" class="mobile-menu-item">
+                    <span>Pricing</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+                </a>
+                <a href="#impact" class="mobile-menu-item">
+                    <span>Impact</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+                </a>
+                <a href="#contact" class="mobile-menu-item mobile-menu-cta">
+                    <span>Get Started</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-gradient">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
+                <div class="lg:flex lg:items-center lg:space-x-12">
+                    <!-- Mobile Layout: Content First -->
+                    <div class="lg:w-1/2 text-center lg:text-left order-2 lg:order-1">
+                        <!-- Made in India Badge -->
+                        <span class="inline-flex items-center gap-2 px-4 py-1.5 mb-4 lg:mb-6 text-sm font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full">
+                            Made in India
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1280px-Flag_of_India.svg.png" alt="Indian Flag" class="w-5 h-5 object-contain">
+                        </span>
+                        
+                        <!-- SakhiBot Heading -->
+                        <h1 class="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-3 lg:mb-4">
+                            <span class="text-blue-600">SakhiBot</span>
+                    </h1>
+                        
+                        <!-- Interactive AI Teaching Assistant -->
+                        <h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-slate-700 mb-4 lg:mb-6">
+                            Interactive AI Teaching Assistant
+                        </h2>
+                        
+                        <!-- Image for Mobile (shown before description) -->
+                        <div class="lg:hidden mb-6 relative">
+                            <div class="absolute inset-0 bg-blue-400 opacity-20 blur-3xl rounded-full"></div>
+                            <img src="assets/welcome.png" alt="SakhiBot Welcome" class="relative z-10 w-48 mx-auto">
+                        </div>
+                        
+                        <!-- Description -->
+                        <p class="text-base sm:text-lg text-slate-600 mb-6 lg:mb-10 max-w-2xl mx-auto lg:mx-0">
+                            Evaluation and Cognitive Mapping Bot designed to transform learning at both schools and homes.
+                        </p>
+                        
+                        <!-- Buttons -->
+                        <div class="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                            <a href="#features" class="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-xl shadow-blue-200">
+                                Explore Features
+                            </a>
+                            <a href="#contact" class="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-2xl font-bold hover:bg-slate-50 transition-all shadow-sm">
+                                Contact Us
+                            </a>
+                    </div>
+                </div>
+
+                    <!-- Desktop Image -->
+                    <div class="lg:w-1/2 mt-8 lg:mt-0 relative hidden lg:block order-1 lg:order-2">
+                        <div class="absolute inset-0 bg-blue-400 opacity-20 blur-3xl rounded-full"></div>
+                        <img src="assets/welcome.png" alt="SakhiBot Welcome" class="relative z-10 w-full max-w-md mx-auto animate-float">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Section -->
+        <section id="problem" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">The Challenge in Modern EdTech</h2>
+                    <div class="w-20 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 reveal">
+                        <div class="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="user-x" class="text-red-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Teacher Overload</h3>
+                        <p class="text-slate-600">One teacher managing many classes limits individual attention to students.</p>
+                    </div>
+
+                    <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 reveal">
+                        <div class="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="layers" class="text-orange-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Uniform Teaching</h3>
+                        <p class="text-slate-600">The same teaching method ignores each student's unique learning pace.</p>
+                    </div>
+
+                    <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 reveal">
+                        <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="brain" class="text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">No Cognitive Insight</h3>
+                        <p class="text-slate-600">Lack of systems to track how students think or learn across the academic year.</p>
+                    </div>
+
+                    <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 reveal">
+                        <div class="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="trending-down" class="text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Low Tech Adoption</h3>
+                        <p class="text-slate-600">Lack of affordable AI tools slows down smart learning integration.</p>
+                </div>
+
+                    <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 reveal">
+                        <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="languages" class="text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Language Barriers</h3>
+                        <p class="text-slate-600">Monolingual content reduces understanding for many learners in diverse regions.</p>
+                    </div>
+                    
+                    <div class="p-8 bg-blue-600 rounded-3xl text-white flex flex-col justify-center reveal">
+                        <h3 class="text-2xl font-bold mb-4">Current EdTech is just Apps / Screens.</h3>
+                        <p class="text-blue-100">Students need companions, not just interfaces.</p>
+                    </div>
+                        </div>
+                    </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section id="solution" class="py-20 bg-slate-900 text-white overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold mb-4">The SakhiBot Solution</h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto">An Advanced AI-Powered Educational Robot designed to transform learning.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="grid sm:grid-cols-2 gap-6 reveal">
+                        <div class="p-6 bg-slate-800 rounded-2xl border border-slate-700">
+                            <div class="text-blue-400 mb-4 font-bold">01</div>
+                            <h4 class="text-lg font-bold mb-2">Personalized Learning</h4>
+                            <p class="text-sm text-slate-400">Adapts to each child's pace, syllabus, and style of understanding.</p>
+                        </div>
+                        <div class="p-6 bg-slate-800 rounded-2xl border border-slate-700">
+                            <div class="text-orange-400 mb-4 font-bold">02</div>
+                            <h4 class="text-lg font-bold mb-2">Emotional Companion</h4>
+                            <p class="text-sm text-slate-400">Provides care, motivation, and mindfulness, reducing stress.</p>
+                        </div>
+                        <div class="p-6 bg-slate-800 rounded-2xl border border-slate-700">
+                            <div class="text-green-400 mb-4 font-bold">03</div>
+                            <h4 class="text-lg font-bold mb-2">Accessible & Affordable</h4>
+                            <p class="text-sm text-slate-400">Solar-powered, works offline, and affordable for families.</p>
+                        </div>
+                        <div class="p-6 bg-slate-800 rounded-2xl border border-slate-700">
+                            <div class="text-purple-400 mb-4 font-bold">04</div>
+                            <h4 class="text-lg font-bold mb-2">Connected Ecosystem</h4>
+                            <p class="text-sm text-slate-400">Curriculum-aligned app with real-time dashboards for parents.</p>
+                        </div>
+                    </div>
+                    <div class="relative reveal">
+                        <div class="absolute -inset-4 bg-blue-600 opacity-20 blur-2xl rounded-full"></div>
+                        <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 relative">
+                            <h3 class="text-2xl font-bold mb-6">Impact Proven</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start space-x-3">
+                                    <div class="mt-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="check" class="text-white w-3 h-3"></i>
+                                    </div>
+                                    <span>80% of students showed better understanding through cognitive mapping.</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <div class="mt-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="check" class="text-white w-3 h-3"></i>
+                                    </div>
+                                    <span>AI identified individual learning patterns and weak areas.</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <div class="mt-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="check" class="text-white w-3 h-3"></i>
+                                    </div>
+                                    <span>Parents reported kids spending more time with studies at home.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 bg-slate-50 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
+                <div class="text-center mb-12 md:mb-16 reveal">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Core Product Features</h2>
+                    <p class="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto px-4">SakhiBot is packed with advanced technology to ensure a safe and effective learning environment.</p>
+                </div>
+
+                <div class="circular-container reveal">
+                    <!-- Connecting Lines SVG -->
+                    <svg class="absolute inset-0 w-full h-full pointer-events-none" style="z-index: 2;">
+                        <!-- Line 1: Top (Safe & Child-friendly) -->
+                        <line x1="50%" y1="50%" x2="50%" y2="5%" stroke="rgba(59, 130, 246, 0.2)" stroke-width="2"/>
+                        <!-- Line 2: Top-Right (Parental Dashboard) -->
+                        <line x1="50%" y1="50%" x2="85%" y2="15%" stroke="rgba(59, 130, 246, 0.2)" stroke-width="2"/>
+                        <!-- Line 3: Right (Multi-language) -->
+                        <line x1="50%" y1="50%" x2="95%" y2="50%" stroke="rgba(59, 130, 246, 0.2)" stroke-width="2"/>
+                        <!-- Line 4: Bottom-Right (Sensor Detection) -->
+                        <line x1="50%" y1="50%" x2="85%" y2="85%" stroke="rgba(59, 130, 246, 0.2)" stroke-width="2"/>
+                        <!-- Line 5: Bottom (App-based Learning) -->
+                        <line x1="50%" y1="50%" x2="50%" y2="95%" stroke="rgba(59, 130, 246, 0.2)" stroke-width="2"/>
+                        <!-- Line 6: Bottom-Left (Familiar Voices) -->
+                        <line x1="50%" y1="50%" x2="15%" y2="85%" stroke="rgba(59, 130, 246, 0.2)" stroke-width="2"/>
+                        <!-- Line 7: Left (Solar-powered) -->
+                        <line x1="50%" y1="50%" x2="5%" y2="50%" stroke="rgba(59, 130, 246, 0.2)" stroke-width="2"/>
+                        <!-- Line 8: Top-Left (AI-Integrated) -->
+                        <line x1="50%" y1="50%" x2="15%" y2="15%" stroke="rgba(59, 130, 246, 0.2)" stroke-width="2"/>
+                    </svg>
+
+                    <!-- Center Bot Image -->
+                    <img src="assets/bot2.png" alt="SakhiBot Features" class="center-bot">
+
+                    <!-- Feature Nodes -->
+                    <!-- Left Side Features (for desktop circular layout) -->
+                    <div class="mobile-left-features">
+                        <!-- 1. Top (Safe & Child-friendly) -->
+                        <div class="feature-node" style="top: 0%; left: 50%; transform: translate(-50%, 0);">
+                            <div class="feature-content">
+                                <div class="feature-icon bg-red-100">
+                                    <i data-lucide="shield-check" class="text-red-600 w-5 h-5"></i>
+                                </div>
+                                <span class="feature-text">Safe & child-friendly design</span>
+                            </div>
+                        </div>
+
+                        <!-- 6. Bottom-Left (Familiar Local Voices) -->
+                        <div class="feature-node" style="bottom: 10%; left: 15%; transform: translate(-50%, 0);">
+                            <div class="feature-content">
+                                <div class="feature-icon bg-green-100">
+                                    <i data-lucide="mic" class="text-green-600 w-5 h-5"></i>
+                                </div>
+                                <span class="feature-text">Familiar local voices</span>
+                            </div>
+                        </div>
+
+                        <!-- 7. Left (Solar-powered) -->
+                        <div class="feature-node" style="top: 50%; left: 5%; transform: translate(-50%, -50%);">
+                            <div class="feature-content">
+                                <div class="feature-icon bg-yellow-100">
+                                    <i data-lucide="sun" class="text-yellow-600 w-5 h-5"></i>
+                                </div>
+                                <span class="feature-text">Solar-powered for remote areas</span>
+                            </div>
+                        </div>
+
+                        <!-- 8. Top-Left (AI-Integrated) -->
+                        <div class="feature-node" style="top: 10%; left: 15%; transform: translate(-50%, 0);">
+                            <div class="feature-content">
+                                <div class="feature-icon bg-blue-100">
+                                    <i data-lucide="cpu" class="text-blue-600 w-5 h-5"></i>
+                                </div>
+                                <span class="feature-text">AI-integrated</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side Features (for desktop circular layout) -->
+                    <div class="mobile-right-features">
+                        <!-- 2. Top-Right (Parental Dashboard) -->
+                        <div class="feature-node" style="top: 10%; left: 85%; transform: translate(-50%, 0);">
+                            <div class="feature-content">
+                                <div class="feature-icon bg-indigo-100">
+                                    <i data-lucide="layout-dashboard" class="text-indigo-600 w-5 h-5"></i>
+                                </div>
+                                <span class="feature-text">Parental & teacher dashboard</span>
+                            </div>
+                        </div>
+
+                        <!-- 3. Right (Multi-language Support) -->
+                        <div class="feature-node" style="top: 50%; left: 95%; transform: translate(-50%, -50%);">
+                            <div class="feature-content">
+                                <div class="feature-icon bg-orange-100">
+                                    <i data-lucide="globe" class="text-orange-600 w-5 h-5"></i>
+                                </div>
+                                <span class="feature-text">Multi-language support</span>
+                            </div>
+                        </div>
+
+                        <!-- 4. Bottom-Right (Sensor Detection) -->
+                        <div class="feature-node" style="bottom: 10%; left: 85%; transform: translate(-50%, 0);">
+                            <div class="feature-content">
+                                <div class="feature-icon bg-cyan-100">
+                                    <i data-lucide="radar" class="text-cyan-600 w-5 h-5"></i>
+                                </div>
+                                <span class="feature-text">Sensor Detection</span>
+                            </div>
+                        </div>
+
+                        <!-- 5. Bottom (App-based Learning) -->
+                        <div class="feature-node" style="bottom: 0%; left: 50%; transform: translate(-50%, 0);">
+                            <div class="feature-content">
+                                <div class="feature-icon bg-purple-100">
+                                    <i data-lucide="smartphone" class="text-purple-600 w-5 h-5"></i>
+                                </div>
+                                <span class="feature-text">App-based learning</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Sequential Features (alternating left-right) -->
+                    <div class="mobile-sequential-features">
+                        <!-- 1. Left -->
+                        <div class="feature-node mobile-feature-left" data-mobile-order="1">
+                            <div class="feature-content">
+                                <div class="feature-icon bg-red-100">
+                                    <i data-lucide="shield-check" class="text-red-600 w-5 h-5"></i>
+                                </div>
+                                <span class="feature-text">Safe & child-friendly design</span>
+                            </div>
+                        </div>
+                        <!-- 2. Right -->
+                        <div class="feature-node mobile-feature-right" data-mobile-order="2">
+                            <div class="feature-content">
+                                <div class="feature-icon bg-indigo-100">
+                                    <i data-lucide="layout-dashboard" class="text-indigo-600 w-5 h-5"></i>
+                                </div>
+                                <span class="feature-text">Parental & teacher dashboard</span>
+                            </div>
+                        </div>
+                        <!-- 3. Left -->
+                        <div class="feature-node mobile-feature-left" data-mobile-order="3">
+                            <div class="feature-content">
+                                <div class="feature-icon bg-green-100">
+                                    <i data-lucide="mic" class="text-green-600 w-5 h-5"></i>
+                                </div>
+                                <span class="feature-text">Familiar local voices</span>
+                            </div>
+                        </div>
+                        <!-- 4. Right -->
+                        <div class="feature-node mobile-feature-right" data-mobile-order="4">
+                            <div class="feature-content">
+                                <div class="feature-icon bg-orange-100">
+                                    <i data-lucide="globe" class="text-orange-600 w-5 h-5"></i>
+                                </div>
+                                <span class="feature-text">Multi-language support</span>
+                            </div>
+                        </div>
+                        <!-- 5. Left -->
+                        <div class="feature-node mobile-feature-left" data-mobile-order="5">
+                            <div class="feature-content">
+                                <div class="feature-icon bg-yellow-100">
+                                    <i data-lucide="sun" class="text-yellow-600 w-5 h-5"></i>
+                                </div>
+                                <span class="feature-text">Solar-powered for remote areas</span>
+                            </div>
+                        </div>
+                        <!-- 6. Right -->
+                        <div class="feature-node mobile-feature-right" data-mobile-order="6">
+                            <div class="feature-content">
+                                <div class="feature-icon bg-cyan-100">
+                                    <i data-lucide="radar" class="text-cyan-600 w-5 h-5"></i>
+                                </div>
+                                <span class="feature-text">Sensor Detection</span>
+                            </div>
+                        </div>
+                        <!-- 7. Left -->
+                        <div class="feature-node mobile-feature-left" data-mobile-order="7">
+                            <div class="feature-content">
+                                <div class="feature-icon bg-blue-100">
+                                    <i data-lucide="cpu" class="text-blue-600 w-5 h-5"></i>
+                                </div>
+                                <span class="feature-text">AI-integrated</span>
+                            </div>
+                        </div>
+                        <!-- 8. Right -->
+                        <div class="feature-node mobile-feature-right" data-mobile-order="8">
+                            <div class="feature-content">
+                                <div class="feature-icon bg-purple-100">
+                                    <i data-lucide="smartphone" class="text-purple-600 w-5 h-5"></i>
+                                </div>
+                                <span class="feature-text">App-based learning</span>
+                            </div>
+                        </div>
+            </div>
+                </div>
+                
+                <div class="text-center mt-20 reveal">
+                    <p class="text-slate-500 font-medium px-6 py-3 bg-white border border-slate-200 rounded-full inline-block">
+                        Customised Robots and STEM Learning kits based on Target Audience
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USP / Novelty Section -->
+        <section class="py-12 md:py-20 bg-white unique-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
+                <div class="bg-blue-600 rounded-2xl md:rounded-[3rem] p-6 md:p-8 lg:p-16 text-white reveal overflow-hidden relative">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 blur-3xl rounded-full -mr-32 -mt-32"></div>
+                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-400 opacity-20 blur-3xl rounded-full -ml-32 -mb-32"></div>
+                    
+                    <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8">What Makes Us Unique?</h2>
+                            <div class="grid gap-4 md:gap-6">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="award" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="text-base md:text-lg font-medium">Patented Power Management</span>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="map" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="text-base md:text-lg font-medium">Cognitive Mapping & Insight</span>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="link" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="text-base md:text-lg font-medium">Curriculum-Aligned Connectivity</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 md:gap-4">
+                            <div class="bg-white/10 p-4 md:p-6 rounded-xl md:rounded-2xl backdrop-blur-sm border border-white/20">
+                                <h4 class="font-bold mb-1 text-sm md:text-base">Regional</h4>
+                                <p class="text-xs md:text-sm text-blue-100">Language Support</p>
+            </div>
+                            <div class="bg-white/10 p-4 md:p-6 rounded-xl md:rounded-2xl backdrop-blur-sm border border-white/20">
+                                <h4 class="font-bold mb-1 text-sm md:text-base">STEM</h4>
+                                <p class="text-xs md:text-sm text-blue-100">Kits & Workshops</p>
+                </div>
+                            <div class="bg-white/10 p-4 md:p-6 rounded-xl md:rounded-2xl backdrop-blur-sm border border-white/20">
+                                <h4 class="font-bold mb-1 text-sm md:text-base">Custom</h4>
+                                <p class="text-xs md:text-sm text-blue-100">School Solutions</p>
+                </div>
+                            <div class="bg-white/10 p-4 md:p-6 rounded-xl md:rounded-2xl backdrop-blur-sm border border-white/20 text-center flex items-center justify-center">
+                                <i data-lucide="sparkles" class="w-6 h-6 md:w-8 md:h-8 text-blue-200"></i>
+                </div>
+                </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        <!-- Pricing & Model Section -->
+        <section id="pricing" class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Flexible Plans for Every Need</h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto">Whether you're a parent or a school administrator, we have a solution that fits your budget.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 reveal">
+                    <!-- B2C Parents & Kids -->
+                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col">
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-bold text-slate-900 flex items-center mb-4">
+                                <i data-lucide="home" class="mr-3 text-blue-600"></i>
+                                B2C: Parents & Kids
+                            </h3>
+                            <p class="text-slate-500">Perfect for home-based learning and emotional companionship.</p>
+                        </div>
+                        
+                        <div class="space-y-6 flex-grow">
+                            <div class="pb-6 border-b border-slate-100">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-bold">Basic SakhiBot</span>
+                                    <span class="text-blue-600 font-bold">₹10,000</span>
+                                </div>
+                                <p class="text-xs text-slate-400">Essential features for interactive learning.</p>
+                            </div>
+                            <div class="pb-6 border-b border-slate-100">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-bold">Premium SakhiBot</span>
+                                    <span class="text-blue-600 font-bold">₹20,000 - ₹25,000</span>
+                                </div>
+                                <p class="text-xs text-slate-400">Full feature set including advanced cognitive mapping.</p>
+                            </div>
+                            <div class="pb-6 border-b border-slate-100">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-bold">App Subscription</span>
+                                    <span class="text-blue-600 font-bold">from ₹199/mo</span>
+                                </div>
+                                <p class="text-xs text-slate-400">Curriculum updates and parent dashboard access.</p>
+                            </div>
+                        </div>
+                        
+                        <a href="#contact" class="mt-8 block w-full py-4 text-center bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all">
+                            Order for Home
+                        </a>
+                    </div>
+
+                    <!-- B2B Schools & NGOs -->
+                    <div class="bg-slate-900 rounded-3xl p-8 text-white flex flex-col">
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-bold flex items-center mb-4 text-blue-400">
+                                <i data-lucide="school" class="mr-3"></i>
+                                B2B: Schools & NGOs
+                            </h3>
+                            <p class="text-slate-400">Bulk solutions for educational institutions and community projects.</p>
+                        </div>
+                        
+                        <div class="space-y-6 flex-grow">
+                            <div class="pb-6 border-b border-slate-700">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-bold">Bulk Units</span>
+                                    <span class="text-blue-400 font-bold">₹6,000 - ₹8,000 / unit</span>
+                                </div>
+                                <p class="text-xs text-slate-500">Subsidized pricing for large-scale adoption.</p>
+                            </div>
+                            <div class="pb-6 border-b border-slate-700">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-bold">STEM Workshops</span>
+                                    <span class="text-blue-400 font-bold">₹4,000+ / kit</span>
+                                </div>
+                                <p class="text-xs text-slate-500">Hands-on learning sessions with DIY robotics kits.</p>
+                            </div>
+                            <div class="pb-6 border-b border-slate-700">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-bold">Institutional Licensing</span>
+                                    <span class="text-blue-400 font-bold">Custom Model</span>
+                                </div>
+                                <p class="text-xs text-slate-500">Teacher dashboards and classroom integration software.</p>
+                            </div>
+                        </div>
+                        
+                        <a href="#contact" class="mt-8 block w-full py-4 text-center bg-blue-500 text-white rounded-2xl font-bold hover:bg-blue-400 transition-all">
+                            Contact for Schools
+                        </a>
+                    </div>
+            </div>
+
+                <!-- Market Comparison -->
+                <div class="mt-20 reveal overflow-x-auto">
+                    <h3 class="text-xl font-bold text-center mb-10">Market Competitive Advantage</h3>
+                    <table class="w-full text-left bg-white rounded-3xl overflow-hidden border border-slate-200">
+                        <thead class="bg-slate-50 border-b border-slate-200">
+                            <tr>
+                                <th class="px-6 py-4 font-bold text-sm">Features</th>
+                                <th class="px-6 py-4 font-bold text-sm">Miko/Roybi</th>
+                                <th class="px-6 py-4 font-bold text-sm bg-blue-50 text-blue-600">SakhiBot</th>
+                        </tr>
+                    </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr>
+                                <td class="px-6 py-4 text-sm text-slate-600">Curriculum-Synced (CBSE/State)</td>
+                                <td class="px-6 py-4"><i data-lucide="x" class="text-red-400 w-4 h-4"></i></td>
+                                <td class="px-6 py-4 bg-blue-50/50"><i data-lucide="check" class="text-green-500 w-5 h-5"></i></td>
+                        </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm text-slate-600">Emotional Bonding (Family Voice)</td>
+                                <td class="px-6 py-4"><i data-lucide="x" class="text-red-400 w-4 h-4"></i></td>
+                                <td class="px-6 py-4 bg-blue-50/50"><i data-lucide="check" class="text-green-500 w-5 h-5"></i></td>
+                        </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm text-slate-600">Offline / Rural Ready (Solar)</td>
+                                <td class="px-6 py-4"><i data-lucide="x" class="text-red-400 w-4 h-4"></i></td>
+                                <td class="px-6 py-4 bg-blue-50/50"><i data-lucide="check" class="text-green-500 w-5 h-5"></i></td>
+                        </tr>
+                        <tr>
+                                <td class="px-6 py-4 text-sm text-slate-600">Adaptive Learning (Repeats until mastered)</td>
+                                <td class="px-6 py-4"><i data-lucide="check" class="text-green-400 w-4 h-4"></i></td>
+                                <td class="px-6 py-4 bg-blue-50/50"><i data-lucide="check" class="text-green-500 w-5 h-5"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </section>
+        <!-- Impact Section -->
+        <section id="impact" class="py-12 md:py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
+                <div class="text-center mb-8 md:mb-16 reveal">
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-3 md:mb-4">Socio-Economic Impact</h2>
+                    <p class="text-sm md:text-base text-slate-600 max-w-2xl mx-auto">Driving change through education and technology alignment with UN SDGs.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-6 md:gap-12 items-center mb-12 md:mb-20 reveal">
+                    <div class="space-y-4 md:space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 text-green-600">
+                                <i data-lucide="graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-base md:text-lg mb-1">Equal Education Access</h4>
+                                <p class="text-sm md:text-base text-slate-500">Bringing quality curriculum to both rich and poor, urban and rural areas.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 md:space-x-4">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 text-blue-600">
+                                <i data-lucide="eye-off" class="w-5 h-5 md:w-6 md:h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-base md:text-lg mb-1">Screen-free Learning</h4>
+                                <p class="text-sm md:text-base text-slate-500">Reducing screen time dependency through interactive physical robot companion.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 md:space-x-4">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0 text-yellow-600">
+                                <i data-lucide="sun" class="w-5 h-5 md:w-6 md:h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-base md:text-lg mb-1">Offline + Solar Powered</h4>
+                                <p class="text-sm md:text-base text-slate-500">Ensuring learning never stops, even in regions with poor electricity.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-4 md:p-8 rounded-2xl md:rounded-[3rem] border border-slate-100 grid grid-cols-2 gap-3 md:gap-4">
+                        <div class="bg-white p-4 md:p-6 rounded-xl md:rounded-2xl text-center">
+                            <div class="text-blue-600 font-bold text-xl md:text-2xl mb-1">Job</div>
+                            <p class="text-xs text-slate-400">Creation for AI trainers</p>
+                        </div>
+                        <div class="bg-white p-4 md:p-6 rounded-xl md:rounded-2xl text-center">
+                            <div class="text-blue-600 font-bold text-xl md:text-2xl mb-1">Low</div>
+                            <p class="text-xs text-slate-400">Dropout rates from school</p>
+                        </div>
+                        <div class="bg-white p-4 md:p-6 rounded-xl md:rounded-2xl text-center">
+                            <div class="text-blue-600 font-bold text-xl md:text-2xl mb-1">Local</div>
+                            <p class="text-xs text-slate-400">Manufacturing support</p>
+                        </div>
+                        <div class="bg-white p-4 md:p-6 rounded-xl md:rounded-2xl text-center">
+                            <div class="text-blue-600 font-bold text-xl md:text-2xl mb-1">SDG</div>
+                            <p class="text-xs text-slate-400">3, 4, 8 & 12 Aligned</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SDG Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
+                    <div class="text-center p-4">
+                        <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl mx-auto flex items-center justify-center mb-4">
+                            <span class="font-bold">SDG 3</span>
+                        </div>
+                        <p class="text-xs font-bold uppercase tracking-tight">Good Health & Well-being</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl mx-auto flex items-center justify-center mb-4">
+                            <span class="font-bold">SDG 4</span>
+                        </div>
+                        <p class="text-xs font-bold uppercase tracking-tight">Quality Education</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl mx-auto flex items-center justify-center mb-4">
+                            <span class="font-bold">SDG 8</span>
+                        </div>
+                        <p class="text-xs font-bold uppercase tracking-tight">Decent Work & Growth</p>
+            </div>
+                    <div class="text-center p-4">
+                        <div class="w-16 h-16 bg-green-100 text-green-600 rounded-2xl mx-auto flex items-center justify-center mb-4">
+                            <span class="font-bold">SDG 12</span>
+                </div>
+                        <p class="text-xs font-bold uppercase tracking-tight">Responsible Production</p>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Our Passionate Team</h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto">Meet the innovators behind SakhiBot, dedicated to transforming the future of education.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 mb-20 reveal max-w-4xl mx-auto">
+                    <!-- Bindu R -->
+                    <div class="bg-white rounded-3xl p-6 text-center border border-slate-100 hover:shadow-xl transition-all group">
+                        <div class="w-48 h-48 bg-slate-200 rounded-2xl mx-auto mb-6 overflow-hidden ring-4 ring-blue-50 group-hover:ring-blue-100 transition-all">
+                            <img src="assets/founder.png" alt="Bindu R - Founder" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-bold mb-1">Bindu R</h4>
+                        <p class="text-blue-600 text-sm font-semibold mb-3 italic">Founder</p>
+                        <p class="text-xs text-slate-500 mb-4">B.Sc. (Hons) in Computer Science with a minor in Entrepreneurship at RV University. 21-year-old entrepreneur building AI-powered educational solutions.</p>
+                        <button onclick="openPopup('founder-popup')" class="px-6 py-2 bg-blue-600 text-white rounded-xl text-sm font-semibold hover:bg-blue-700 transition-all">
+                            View Details
+                        </button>
+                    </div>
+                    <!-- Usharani G -->
+                    <div class="bg-white rounded-3xl p-6 text-center border border-slate-100 hover:shadow-xl transition-all group">
+                        <div class="w-48 h-48 bg-slate-200 rounded-2xl mx-auto mb-6 overflow-hidden ring-4 ring-blue-50 group-hover:ring-blue-100 transition-all">
+                            <img src="assets/co-founder.png" alt="Usharani G - Co-Founder" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-bold mb-1">Usha Rani</h4>
+                        <p class="text-blue-600 text-sm font-semibold mb-3 italic">Co-Founder</p>
+                        <p class="text-xs text-slate-500 mb-4">25+ Years Experience in Business. Chairman of KASSIA Women Sub-Committee, passionate advocate for women empowerment.</p>
+                        <button onclick="openPopup('cofounder-popup')" class="px-6 py-2 bg-blue-600 text-white rounded-xl text-sm font-semibold hover:bg-blue-700 transition-all">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Advisors -->
+                <!-- <div class="reveal">
+                    <h3 class="text-xl md:text-2xl font-bold text-center mb-6 md:mb-10">Esteemed Advisors</h3>
+                    <div class="grid grid-cols-2 gap-2 md:gap-4 max-w-3xl mx-auto">
+                        <span class="px-3 md:px-6 py-2 md:py-3 bg-white border border-slate-200 rounded-full text-xs md:text-sm font-medium shadow-sm text-center">Mr. R Shivkumar</span>
+                        <span class="px-3 md:px-6 py-2 md:py-3 bg-white border border-slate-200 rounded-full text-xs md:text-sm font-medium shadow-sm text-center">Dr. Phani Kumar Pullela</span>
+                        <span class="px-3 md:px-6 py-2 md:py-3 bg-white border border-slate-200 rounded-full text-xs md:text-sm font-medium shadow-sm text-center">Mr. Sheik Salim</span>
+                        <span class="px-3 md:px-6 py-2 md:py-3 bg-white border border-slate-200 rounded-full text-xs md:text-sm font-medium shadow-sm text-center">Shriyans Kumar Jain</span>
+                        <span class="px-3 md:px-6 py-2 md:py-3 bg-white border border-slate-200 rounded-full text-xs md:text-sm font-medium shadow-sm text-center col-span-2">Mrs. Latha Girish</span>
+                    </div>
+                </div> -->
+
+                <div class="mt-12 md:mt-20 text-center reveal">
+                    <div class="inline-flex flex-nowrap justify-center items-center gap-2 md:gap-8 bg-white p-4 md:p-6 rounded-xl md:rounded-[3rem] border border-slate-100 shadow-sm">
+                        <span class="text-slate-400 text-xs md:text-sm font-semibold uppercase tracking-wider whitespace-nowrap">Incubated at</span>
+                        <img src="https://rvu.edu.in/wp-content/themes/rvu/images/header_logo.svg" alt="RV University" class="h-8 md:h-12 object-contain flex-shrink-0">
+                        <div class="w-px h-6 md:h-8 bg-slate-200"></div>
+                        <img src="https://nitte.edu.in/img/nitte-logo.png" alt="NITTE" class="h-8 md:h-12 object-contain flex-shrink-0">
+                    </div>
+            </div>
+                </div>
+        </section>
+
+        <!-- Upcoming Product Vision Section -->
+        <section class="py-12 md:py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+                <div class="bg-white rounded-2xl md:rounded-[3rem] p-6 md:p-8 lg:p-12 shadow-xl border border-blue-100">
+                    <div class="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-blue-100 text-blue-700 rounded-full text-xs md:text-sm font-bold mb-4 md:mb-6">
+                        Coming Soon
+                </div>
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 md:mb-6">Our Vision for the Future</h2>
+                    <p class="text-sm md:text-lg lg:text-xl text-slate-700 leading-relaxed mb-3 md:mb-4">
+                        We envision creating globally relevant solutions that give the next generation confidence, voice, and equal access to opportunity—starting at the earliest stages of learning.
+                    </p>
+                    <p class="text-sm md:text-lg lg:text-xl text-slate-700 leading-relaxed">
+                        Our upcoming innovations will continue to bridge language barriers, empower communication, and build emotional intelligence through cutting-edge AI technology designed for every child, everywhere.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popup Modals -->
+        <!-- Founder Popup -->
+        <div id="founder-popup" class="popup-overlay hidden">
+            <div class="popup-content">
+                <button onclick="closePopup('founder-popup')" class="popup-close">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/3">
+                        <img src="assets/founder.png" alt="Bindu R" class="w-full rounded-2xl mb-4">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Bindu R</h3>
+                        <p class="text-blue-600 font-semibold mb-6">Founder</p>
+                        
+                        <div class="space-y-4 text-sm text-slate-700">
+                            <p>
+                                Bindu R is a 21-year-old entrepreneur and technology founder, currently pursuing a B.Sc. (Hons) in Computer Science with a minor in Entrepreneurship at RV University, Bengaluru. She is the Founder of BR Innovation & Technology, focused on building scalable, human-centric products at the intersection of AI, education, and emotional learning.
+                            </p>
+                            <p>
+                                Inspired by growing up in a family-run MSME business, Bindu witnessed how strong capability can be held back by language barriers. This personal experience shaped her mission to build solutions that empower confidence and communication from an early age.
+                            </p>
+                            <p>
+                                Through BR Innovation & Technology, she is developing SakhiBot, an AI-powered spoken-English companion designed to help children build communication confidence in a safe, judgment-free environment. In parallel, she has led the development of Emova, an IoT-enabled emotional support plush toy, and ComfyCub, a sustainable babywear brand—demonstrating her ability to execute across hardware, software, consumer products, and brand building.
+                            </p>
+                            <p>
+                                With a hands-on, execution-first approach and the ability to work across diverse user groups through her multilingual background (5+ languages), Bindu combines empathy, discipline, and technology to build products with long-term impact.
+                            </p>
+                            <p class="font-semibold">
+                                Her vision is to create globally relevant solutions that give the next generation confidence, voice, and equal access to opportunity—starting at the earliest stages of learning.
+                            </p>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-slate-200">
+                            <h4 class="font-bold text-slate-900 mb-4">Awards & Recognitions</h4>
+                            <ul class="space-y-2 text-sm text-slate-600">
+                                <li class="flex items-start">
+                                    <i data-lucide="award" class="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                                    <span>FKCCI Manthan Award – Recognized for innovation and entrepreneurial excellence</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-lucide="award" class="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                                    <span>KASSIA Women Entrepreneur Award (Innovation Category)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-lucide="award" class="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                                    <span>Women Entrepreneur India Award & Recognition</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-lucide="award" class="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                                    <span>Karnataka Elevate 2025 – Grand Finalist</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-lucide="award" class="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                                    <span>MIT-WPU Patent Award – Recognized for innovative product development</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-lucide="award" class="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                                    <span>KASSIA Recognition as Young Innovation Entrepreneur</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-lucide="award" class="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                                    <span>Featured Entrepreneur on Ideabaaz (Zee TV & Zee5)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-lucide="award" class="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                                    <span>Featured on WHY Combinator YouTube Channel (Pitch Feature)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Co-Founder Popup -->
+        <div id="cofounder-popup" class="popup-overlay hidden">
+            <div class="popup-content">
+                <button onclick="closePopup('cofounder-popup')" class="popup-close">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/3">
+                        <img src="assets/co-founder.png" alt="Usha Rani" class="w-full rounded-2xl mb-4">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Usha Rani</h3>
+                        <p class="text-blue-600 font-semibold mb-6">Co-Founder</p>
+                        
+                        <div class="space-y-4 text-sm text-slate-700">
+                            <p>
+                                Usha Rani is the Co-Founder of BR Innovation & Technology, with 25+ years of experience as an entrepreneur in MSME manufacturing and business operations. She brings deep operational expertise and a strong execution-driven mindset shaped by decades of building enterprises from the ground up.
+                            </p>
+                            <p>
+                                She serves as the Chairman of the KASSIA Women Sub-Committee and is a passionate advocate for women empowerment, actively mentoring and supporting women entrepreneurs. Her leadership blends practical business insight with a strong commitment to inclusive and sustainable growth.
+                            </p>
+                            <p>
+                                With her extensive experience in MSME operations and her dedication to empowering women in business, Usha Rani provides invaluable strategic guidance and operational excellence to BR Innovation & Technology, ensuring the company's sustainable growth and impact.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-slate-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
+                <div class="lg:flex lg:items-center lg:space-x-20">
+                    <div class="lg:w-1/2 mb-16 lg:mb-0 reveal">
+                        <h2 class="text-3xl lg:text-4xl font-bold mb-6">Ready to bring SakhiBot to your home or school?</h2>
+                        <p class="text-slate-400 text-lg mb-10">Get in touch with us for a demo, bulk pricing, or any questions you have about our AI educational robot.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
+                                    <i data-lucide="mail" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <span class="text-lg">brinoandtech@gmail.com</span>
+                            </div>
+                            <!-- <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
+                                    <i data-lucide="phone" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <span class="text-lg italic text-slate-400">Request via email</span>
+                            </div> -->
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
+                                    <i data-lucide="map-pin" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <span class="text-lg">Karnataka, India</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:w-1/2 bg-white rounded-[2rem] p-8 lg:p-12 text-slate-900 reveal">
+                        <form id="contact-form" class="space-y-6">
+                            <div id="form-message" class="hidden p-4 rounded-xl mb-4"></div>
+                            <div class="grid sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-slate-700 mb-2">Full Name</label>
+                                    <input type="text" id="full-name" name="fullName" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-slate-700 mb-2">Email Address</label>
+                                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all">
+            </div>
+                    </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Interest</label>
+                                <select id="interest" name="interest" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all">
+                                    <option value="">Select an option</option>
+                                    <option value="Home Use (Parent)">Home Use (Parent)</option>
+                                    <option value="School Partnership">School Partnership</option>
+                                    <option value="NGO / CSR Inquiry">NGO / CSR Inquiry</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                </select>
+                    </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Message</label>
+                                <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"></textarea>
+                    </div>
+                            <button type="submit" id="submit-btn" class="w-full py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
+                                Send Message
+                            </button>
+                </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-12 bg-slate-950 text-white border-t border-slate-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
+                <div class="grid md:grid-cols-3 gap-12 mb-12">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-2">
+                            <img src="assets/logo.png" alt="SakhiBot Logo" class="h-10">
+                        </div>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            We build affordable AI-powered companion robots that deliver personalized education and emotional support for everyone, everywhere.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-6">Quick Links</h4>
+                        <ul class="space-y-4 text-sm text-slate-500">
+                            <li><a href="#problem" class="hover:text-blue-400">The Problem</a></li>
+                            <li><a href="#solution" class="hover:text-blue-400">Our Solution</a></li>
+                            <li><a href="#features" class="hover:text-blue-400">Core Features</a></li>
+                            <li><a href="#impact" class="hover:text-blue-400">Social Impact</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold mb-6">Connect With Us</h4>
+                        <div class="flex space-x-4 mb-6">
+                            <a href="#" class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all">
+                                <i data-lucide="instagram" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all">
+                                <i data-lucide="twitter" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                        <div class="bg-white p-2 rounded-xl inline-block">
+                            <!-- Placeholder for QR code image if available -->
+                            <div class="w-24 h-24 bg-slate-100 flex items-center justify-center text-slate-300 text-[10px] text-center p-2">
+                                <i data-lucide="qr-code" class="w-12 h-12 mb-1"></i>
+                                Instagram QR
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pt-8 border-t border-slate-900 text-center text-xs text-slate-600">
+                    <p>&copy; 2026 BR Innovation & Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+
